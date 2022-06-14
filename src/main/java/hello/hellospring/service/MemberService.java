@@ -9,7 +9,12 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    public static final String ERROR_DUPLICATED_NAME = "이름이 중복되었습니다.";
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원 가입
@@ -29,7 +34,7 @@ public class MemberService {
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())
                         .ifPresent(m -> {
-                            throw new IllegalArgumentException("이름이 중복되었습니다.");
+                            throw new IllegalArgumentException(ERROR_DUPLICATED_NAME);
                         });
     }
 
