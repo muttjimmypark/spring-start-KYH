@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class MemberService {
 
     public static final String ERROR_DUPLICATED_NAME = "이름이 중복되었습니다.";
