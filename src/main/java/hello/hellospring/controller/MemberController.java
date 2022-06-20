@@ -26,7 +26,7 @@ public class MemberController {
 
     /** 컴포넌트 스캔과 자동 의존관계 설정
      * 생성자를 통해 서비스를 넘겨받음으로 Dependency Injection 구현하였으며
-     * 애노테이션 준수하여 자동화
+     * 애노테이션 준수하여 자동화 (Autowired)
      * 다만 애플리케이션이 소속된 패키지와 그 하위 패키지에 구성되어있어야 함
      */
 
@@ -65,7 +65,10 @@ public class MemberController {
      */
 
 
+
     /**
+     * 위의 넘겨받는 예제와 비교해서 살펴볼것
+     * 아래는 서비스가 동작한 결과가 템플릿 리턴할때 들어가니까
      */
     @GetMapping("/members")
     public String list(Model model) {
