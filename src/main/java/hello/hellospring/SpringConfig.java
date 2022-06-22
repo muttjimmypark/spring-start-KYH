@@ -1,5 +1,6 @@
 package hello.hellospring;
 
+import hello.hellospring.aop.TimeTraceAop;
 import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,6 @@ public class SpringConfig {
 ////        return new JdbcTemplateMemberRepository(dataSource);
 //        return new JpaMemberRepositiory(em);
 //    }
-
     /**
      * 의존관계 설정 (=DI) 할때
      * 별개 필드 생성, setter 주입 할수도 있지만
@@ -64,4 +64,13 @@ public class SpringConfig {
      *
      * 의존관계는 실행중에 동적으로 바뀌지 않음
      */
+
+//    /*
+//    aop는 config에서 일부러 수동등록 해주면서
+//    쓰이고있음을 보여주는게 더 명료
+//     */
+//    @Bean
+//    public TimeTraceAop timeTraceAop() {
+//        return new TimeTraceAop();
+//    }
 }

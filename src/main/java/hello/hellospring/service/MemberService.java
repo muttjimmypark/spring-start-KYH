@@ -27,10 +27,24 @@ public class MemberService {
 //        result.ifPresent(m -> {
 //            throw new IllegalArgumentException("이미 존재하는 회원입니다.");
 //        });
+
         validateDuplicateMember(member);
 
         memberRepository.save(member);
         return member.getId();
+
+//        //시간 측정기능 aop를 사용하지 않는다면 이런 노가다를 해야함
+//        long start = System.currentTimeMillis();
+//
+//        try {
+//            validateDuplicateMember(member);
+//            memberRepository.save(member);
+//            return member.getId();
+//        } finally {
+//            long finish = System.currentTimeMillis();
+//            long timeMs = finish - start;
+//            System.out.println("join = " + timeMs + "ms");
+//        }
     }
 
     private void validateDuplicateMember(Member member) {
